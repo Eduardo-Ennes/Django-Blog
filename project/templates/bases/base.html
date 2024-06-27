@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% include "partials/_head.html" %}
+</head>
+<body>
+    <div class="blog-wrapper">
+        {% if setup.show_header %}
+            {% include "partials/_header.html" %}
+        {% endif %}
+        
+        {% block content %}{% endblock content %}
+
+        {% if  setup.show_pagination %}
+            {% include "partials/_paginator.html" %}
+        {% endif %}
+
+        {% if  setup.show_footer %}
+            {% include "partials/_footer.html" %} 
+        {% endif %}
+
+        <!-- 
+            As condições verificam no banco de dados se as opções estão ativas ou não, caso estejão desativadas não mostrará na tela, isso tem relação com as opções de o usuário querer mostrar ou não, para mais duvidas consultar o banco de dados e observar as opções que foram desponibilizadas para o usuario. 
+        -->
+    </div>
+</body>
+</html>
